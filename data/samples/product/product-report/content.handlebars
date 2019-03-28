@@ -1,0 +1,111 @@
+<!--
+More complex example demonstrating advanced features like
+- using custom server script to fetch remote data
+- using custom modules in safe sandbox
+- painting a chart
+- using global helpers
+- merging custom dynamic header for each individual page
+
+Note: This example requires jsreport to be configured with
+{ "allowLocalFilesAccess": true } or
+{ "extensions": { "scripts": { "allowedModules": ["https"] } } }
+!-->
+<html>
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/metro/4.1.5/css/metro.min.css">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js'></script>
+  </head>
+  <body>
+    <h2 style="text-align: center;margin-bottom: 30px;">ทีม {{teamname}}</h2>
+    <h4 style="text-align: center;margin-bottom: 10px;margin-top: 10px">ตารางสรุปยอดการเบิกสินค้า</h4>
+        <table class='table striped'>
+            <thead>
+                <tr>
+                    <th>ชื่อสิ้นค้า</th>
+                    <th>จำนวน</th>
+                    <th>ราคา(ต่อหน่วย)</th>
+                    {{!--<th>ShipCountry</th>--}}
+                </tr>
+            </thead>
+            <tbody>
+                {{#each reportall.items}}
+                <tr>
+                    <td>{{name}}<br>{{#each type}} &nbsp;&nbsp;-&nbsp;{{name}}<br> {{/each}}</td>
+                    <td><br>{{#each type}}{{qty}}<br> {{/each}}</td>
+                    
+                    <td>{{price}}</td>
+                </tr>
+                {{/each}}
+                
+                <tr>
+                    <td>รวม</td>
+                    <td>{{reportall.totalqty}}</td>
+                    <td>{{reportall.totalprice}}</td>
+                </tr>
+                
+            </tbody>
+        </table>
+        <h4 style="text-align: center;margin-bottom: 10px;margin-top: 10px;">ตารางรายละเอียดการเบิกสินค้า</h4>
+         <table class='table striped'>
+            <thead>
+                <tr>
+                    <th>ผู้รับ</th>
+                    <th>รายละเอียด</th>
+                    <th>จำนวน</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                
+                {{#each reportDetail}}
+                <tr>
+                    
+                    <td>{{customer.firstname}} {{customer.lastname}}</td>
+                    <td> {{#each items}} {{name}}<br> {{#each value}} &nbsp;&nbsp;-&nbsp;{{name}}<br>{{/each}}{{/each}} </td> 
+                    <td> {{#each items}} <br> {{#each value}} {{qty}}<br>{{/each}}{{/each}} </td>
+                   
+                </tr>
+                {{/each}}
+                
+                
+            </tbody>
+           
+        </table>
+                <script>
+            // convert data into js string using function from asset global helpers.js
+            // this results into something like var data = { "a": "foo" }
+            // which gets afterwards interpreted in chrome into object
+            var data = {{{toJSON accumulated}}}
+
+            Chart.defaults.global.legend.display = false;
+
+            new Chart(orders{{country}}.getContext("2d"), {
+                type: 'bar',
+                data: {
+                    labels: Object.keys(data),
+                    datasets: [{
+                        fillColor: 'blue',
+                        label: "Orders in time",
+                        backgroundColor: "rgba(27,161,226,0.2)",
+                        borderColor: "rgba(27,161,226,1)",
+                        borderWidth: 1,
+                        hoverBackgroundColor: "rgba(27,161,226,0.4)",
+                        hoverBorderColor: "rgba(27,161,226,1)",
+                        data: Object.keys(data).map(function (o) {
+                            return data[o].value;
+                        })
+                    }]
+                },
+                options: {
+                    animation: {
+                        duration: 0
+                    }
+                }
+            });
+        </script>
+
+        <div style='page-break-after: always;'>
+        </div>
+  </body>
+</html>

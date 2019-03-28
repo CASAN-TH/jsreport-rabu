@@ -1,0 +1,30 @@
+{
+    "folder": {
+        "shortid": "sRKLKeg"
+    },
+    "shortid": "H1xD10Pwu4",
+    "name": "product-report",
+    "recipe": "chrome-pdf",
+    "engine": "handlebars",
+    "chrome": {
+        "printBackground": true,
+        "marginTop": "2.5cm",
+        "marginRight": "1.5cm",
+        "marginBottom": "1.5cm",
+        "marginLeft": "1.5cm",
+        "waitForJS": "false"
+    },
+    "pdfOperations": [
+        {
+            "type": "merge",
+            "templateShortid": "SkxNK0PwON",
+            "renderForEveryPage": true
+        }
+    ],
+    "creationDate": "2019-03-26T09:16:18.008Z",
+    "modificationDate": {
+        "$$date": 1553675672678
+    },
+    "_id": "4q9kUE0wsxzqvFdV",
+    "$entitySet": "templates"
+}

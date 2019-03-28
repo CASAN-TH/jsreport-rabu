@@ -1,0 +1,15 @@
+{
+    "shortid": "SJzJyv829e",
+    "name": "population-data",
+    "folder": {
+        "shortid": "0ppeLV"
+    },
+    "creationDate": {
+        "$$date": 1553575986921
+    },
+    "modificationDate": {
+        "$$date": 1553575986921
+    },
+    "_id": "kjKijtQhYmV9PpCt",
+    "$entitySet": "data"
+}

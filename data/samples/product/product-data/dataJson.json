@@ -1,0 +1,140 @@
+{
+    "status": 200,
+    "data": {
+        "teamname": "BoomLove love",
+        "reportall": {
+            "items": [
+                {
+                    "name": "Powder",
+                    "price": 170,
+                    "type": [
+                        {
+                            "name": "SK04",
+                            "qty": 6
+                        },
+                        {
+                            "name": "SK02",
+                            "qty": 5
+                        },
+                        {
+                            "name": "SK06",
+                            "qty": 1
+                        }
+                    ]
+                },
+                {
+                    "name": "perfect lip",
+                    "price": 69,
+                    "type": [
+                        {
+                            "name": "RL02",
+                            "qty": 2
+                        },
+                        {
+                            "name": "RL04",
+                            "qty": 1
+                        },
+                        {
+                            "name": "RL06",
+                            "qty": 1
+                        },
+                        {
+                            "name": "RL01",
+                            "qty": 1
+                        }
+                    ]
+                }
+            ],
+            "totalprice": 2385,
+            "totalqty": 17
+        },
+        "reportDetail": [
+            {
+                "customer": {
+                    "firstname": "ณัฐพล",
+                    "lastname": "ใจดี"
+                },
+                "items": [
+                    {
+                        "name": "Powder(สีแป้งตลับ)",
+                        "value": [
+                            {
+                                "_id": "5c930292685a6f00192c3176",
+                                "name": "SK04",
+                                "qty": 1
+                            },
+                            {
+                                "_id": "5c930292685a6f00192c3178",
+                                "name": "SK02",
+                                "qty": 1
+                            },
+                            {
+                                "_id": "5c930292685a6f00192c3174",
+                                "name": "SK06",
+                                "qty": 1
+                            }
+                        ]
+                    },
+                    {
+                        "name": "perfect lip(สีลิปสติก)",
+                        "value": [
+                            {
+                                "_id": "5c930263685a6f00192c316f",
+                                "name": "RL02",
+                                "qty": 1
+                            },
+                            {
+                                "_id": "5c930263685a6f00192c316d",
+                                "name": "RL04",
+                                "qty": 1
+                            },
+                            {
+                                "_id": "5c930263685a6f00192c316b",
+                                "name": "RL06",
+                                "qty": 1
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "customer": {
+                    "firstname": "ณํฐพง",
+                    "lastname": "ใจดี"
+                },
+                "items": [
+                    {
+                        "name": "perfect lip(สีลิปสติก)",
+                        "value": [
+                            {
+                                "_id": "5c930261685a6f00192c3162",
+                                "name": "RL01",
+                                "qty": 1
+                            },
+                            {
+                                "_id": "5c930261685a6f00192c3161",
+                                "name": "RL02",
+                                "qty": 1
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Powder(สีแป้งตลับ)",
+                        "value": [
+                            {
+                                "_id": "5c930292685a6f00192c3178",
+                                "name": "SK02",
+                                "qty": 4
+                            },
+                            {
+                                "_id": "5c930292685a6f00192c3176",
+                                "name": "SK04",
+                                "qty": 5
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
